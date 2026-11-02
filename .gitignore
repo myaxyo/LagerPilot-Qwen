@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Large model binaries (>100MB, hosted on Hugging Face Hub)
+models/lagerpilot_qwen_merged/
+*.bin
+*.pt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+.coverage
+.pytest_cache/

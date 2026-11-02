@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LagerPilot-Qwen | Rampen-Terminal für den Wareneingang (§ 377 HGB)</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --green: #22c55e;
+      --yellow: #eab308;
+      --red: #ef4444;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .logo-area h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-onprem {
+      background: #1e3a8a;
+      color: #93c5fd;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    .presets-container {
+      margin-bottom: 20px;
+    }
+
+    .presets-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .presets-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .preset-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn:hover {
+      background: #334155;
+      border-color: var(--primary);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 10px 12px;
+      transition: border-color 0.15s;
+    }
+
+    textarea:focus, input[type="text"]:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .barcode-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-barcode {
+      background: #334155;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .btn-barcode:hover {
+      background: #475569;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.15s;
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Result Panel */
+    .status-banner {
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+      display: none;
+    }
+
+    .status-FREIGABE {
+      background: rgba(34, 197, 94, 0.15);
+      border: 2px solid var(--green);
+      color: #4ade80;
+    }
+
+    .status-MÄNGELRÜGE_ERFORDERLICH {
+      background: rgba(234, 179, 8, 0.15);
+      border: 2px solid var(--yellow);
+      color: #fde047;
+    }
+
+    .status-SPERRE {
+      background: rgba(239, 68, 68, 0.15);
+      border: 2px solid var(--red);
+      color: #f87171;
+    }
+
+    .rampen-directive {
+      background: #0f172a;
+      border-left: 4px solid var(--primary);
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      font-weight: 600;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .legal-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .legal-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .legal-title {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .btn-copy {
+      background: #334155;
+      border: none;
+      color: #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .btn-copy:hover {
+      background: #475569;
+      color: white;
+    }
+
+    .legal-text {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      white-space: pre-wrap;
+      color: #e2e8f0;
+      background: #020617;
+      padding: 12px;
+      border-radius: 6px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    pre {
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      max-height: 250px;
+    }
+
+    .placeholder-state {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+    }
+
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border-top: 3px solid white;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo-area">
+      <h1>
+        <span>📦 LagerPilot-Qwen</span>
+        <span class="badge-onprem">100% On-Prem / DSGVO</span>
+      </h1>
+      <p class="subtitle">Echtzeit-Prüfung für Wareneingang, VPE-Mathematik, § 377 HGB Mängelrügen & SAP MIGO Buchung</p>
+    </div>
+    <div>
+      <span style="font-size: 0.8rem; color: #10b981; font-weight: 600;">● Engine Online (CPU Edge)</span>
+    </div>
+  </header>
+
+  <!-- Presets -->
+  <div class="presets-container">
+    <div class="presets-label">Schnell-Szenarien für die Rampe (Klick zum Laden):</div>
+    <div class="presets-grid">
+      <button class="preset-btn" onclick="loadPreset('vpe')">🟢 1. VPE-Umrechnung (20 Karton à 50 = 1000)</button>
+      <button class="preset-btn" onclick="loadPreset('shortage')">🟡 2. Fehlmenge (420 statt 500 Kugellager)</button>
+      <button class="preset-btn" onclick="loadPreset('surplus')">🟡 3. Mehrlieferung (+150 Dichtringe Überschuss)</button>
+      <button class="preset-btn" onclick="loadPreset('aliud')">🟡 4. Falschlieferung (Aliud Rev B statt Rev A)</button>
+      <button class="preset-btn" onclick="loadPreset('damage')">🟡 5. Transportschaden (Karton nass/gestaucht)</button>
+      <button class="preset-btn" onclick="loadPreset('hazmat')">🔴 6. Gefahrgut-Alarm (UN 1219 leckt, kein SDB)</button>
+      <button class="preset-btn" onclick="loadPreset('mhd')">🟡 7. MHD-Verfall (Restlaufzeit nur 6 Wochen)</button>
+      <button class="preset-btn" onclick="loadPreset('cert')">🟡 8. Werkszeugnis fehlt (EN 10204 3.1)</button>
+      <button class="preset-btn" onclick="loadPreset('wrong_addr')">🔴 9. Falscher Empfänger (Fremdfirma Dortmund)</button>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <!-- Input Form -->
+    <div class="card">
+      <div class="card-title">
+        <span>Eingangsbelege & Rampen-Befund</span>
+      </div>
+
+      <!-- Barcode Scanner Field -->
+      <div class="form-group">
+        <label>Industrie-Barcode Scan (GS1-128 / VDA 4902 / 2D DataMatrix):</label>
+        <div class="barcode-row">
+          <input type="text" id="barcode_input" placeholder="z.B. (01)04012345678901(10)LOT-SKF-881(17)261231(30)50">
+          <button class="btn-barcode" type="button" onclick="parseBarcode()">Barcode parsen</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Lieferschein (OCR / Scan / EDI):</label>
+        <textarea id="lieferschein_input" rows="5" placeholder="Lieferant, LS-Nummer, Positionen, Verpackungseinheiten..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>ERP-Bestellung (Soll-Vorgabe aus SAP / proALPHA / Business Central):</label>
+        <textarea id="po_input" rows="4" placeholder="Bestellnummer, geforderte Artikel, Soll-Menge, Qualitätsauflagen..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Rampen-Sichtprüfung & Mangel-Notizen:</label>
+        <textarea id="ramp_input" rows="3" placeholder="Zustand Paletten, Nässe, Nachzählung, Beschädigungen..."></textarea>
+      </div>
+
+      <button id="btn_audit" class="btn-submit" onclick="submitAudit()">
+        <span id="btn_text">⚡ Wareneingang prüfen (§ 377 HGB Audit)</span>
+        <span id="btn_spinner" class="spinner" style="display: none;"></span>
+      </button>
+    </div>
+
+    <!-- Output Panel -->
+    <div class="card">
+      <div class="card-title">
+        <span>Prüfergebnis & ERP-Freigabe</span>
+        <span id="audit_latency" style="font-size: 0.8rem; color: var(--muted); font-weight: normal;"></span>
+      </div>
+
+      <div id="placeholder_view" class="placeholder-state">
+        <div style="font-size: 3rem; margin-bottom: 12px;">📋</div>
+        <p>Wähle links ein Szenario oder gib Lieferschein-Daten ein,<br>um die automatische § 377 HGB Prüfung auszuführen.</p>
+      </div>
+
+      <div id="result_view" style="display: none;">
+        <!-- Status Banner -->
+        <div id="status_banner" class="status-banner"></div>
+
+        <!-- Ramp Directive -->
+        <div id="rampen_directive" class="rampen-directive"></div>
+
+        <!-- Legal Complaint Letter Card -->
+        <div id="legal_card" class="legal-card">
+          <div class="legal-card-header">
+            <span class="legal-title">Rechtswirksame Mängelrüge (§ 377 HGB / § 439 BGB):</span>
+            <button class="btn-copy" onclick="copyLegalText()">📋 Text kopieren</button>
+          </div>
+          <div id="legal_text" class="legal-text"></div>
+        </div>
+
+        <!-- ERP Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('tab_sap')">SAP MIGO (BAPI Payload)</button>
+          <button class="tab-btn" onclick="switchTab('tab_json')">Vollständiges Audit-JSON</button>
+        </div>
+
+        <div id="tab_sap" class="tab-content active">
+          <pre id="sap_code">// SAP BAPI_GOODSMVT_CREATE Payload...</pre>
+        </div>
+
+        <div id="tab_json" class="tab-content">
+          <pre id="json_code">// Vollständige Audit-Daten...</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PRESETS = {
+  vpe: {
+    delivery: "Lieferant: Würth Industrie Service GmbH & Co. KG\nLieferschein: LS-90112\nBestell-Nr: PO-2026-401\nPos 1: Sechskantschrauben DIN 933 M12x40 8.8 verzinkt\nMenge: 20 Karton (Inhalt je Karton: 50 Stück = 1.000 Stück)\nCharge: CH-2026-091",
+    po: "Bestellung PO-2026-401\nLieferant: Würth Industrie Service\nPos 1: Sechskantschrauben DIN 933 M12x40 verzinkt\nMenge: 1.000 Stück",
+    ramp: "20 Kartons auf Europalette einwandfrei angeliefert. Folie intakt, keine Schäden."
+  },
+  shortage: {
+    delivery: "Lieferant: Schaeffler Technologies AG & Co. KG\nLieferschein: LS-44102\nBestell-Nr: PO-2026-512\nPos 1: Rillenkugellager 6205-2RSH\nMenge geliefert: 420 Stück\nCharge: LOT-SKF-992",
+    po: "Bestellung PO-2026-512\nLieferant: Schaeffler Technologies AG & Co. KG\nPos 1: Rillenkugellager 6205-2RSH\nMenge: 500 Stück",
+    ramp: "Nachzählung an der Rampe: Nur 420 Stück vorhanden. 80 Stück fehlen ohne Vorankündigung."
+  },
+  surplus: {
+    delivery: "Lieferant: Bosch Rexroth AG\nLieferschein: LS-88219\nBestell-Nr: PO-2026-663\nPos 1: Hydraulikdichtringe NBR 70 45x60x7\nMenge geliefert: 350 Stück",
+    po: "Bestellung PO-2026-663\nLieferant: Bosch Rexroth AG\nPos 1: Hydraulikdichtringe NBR 70 45x60x7\nMenge bestellt: 200 Stück",
+    ramp: "Lieferant hat 350 Stück geliefert statt 200 Stück bestellt. 150 Stück unbestellter Überschuss."
+  },
+  aliud: {
+    delivery: "Lieferant: Festo SE & Co. KG\nLieferschein: LS-31125\nBestell-Nr: PO-2026-780\nPos 1: Art-Nr: PNEU-V-52-REV-B 5/2-Wegeventil modifizierte Version B\nMenge: 25 Stück",
+    po: "Bestellung PO-2026-780\nLieferant: Festo SE & Co. KG\nPos 1: Art-Nr: PNEU-V-52-REV-A 5/2-Wegeventil Standard Version A\nMenge: 25 Stück",
+    ramp: "Aufdruck auf Verpackung: Revision B geliefert. In der Bestellung ist explizit Revision A gefordert."
+  },
+  damage: {
+    delivery: "Lieferant: Phoenix Contact GmbH & Co. KG\nLieferschein: LS-66104\nBestell-Nr: PO-2026-891\nPos 1: Reihenklemmen UT 2,5 grau\nMenge: 50 Karton (à 50 Stück = 2.500 Stück)",
+    po: "Bestellung PO-2026-891\nLieferant: Phoenix Contact GmbH & Co. KG\nPos 1: Reihenklemmen UT 2,5 grau\nMenge: 2.500 Stück",
+    ramp: "Speditionstransportschaden: Palette gestaucht, 6 Kartons durchnässt und aufgerissen. Fahrer hat CMR gegengezeichnet."
+  },
+  hazmat: {
+    delivery: "Lieferant: Klüber Lubrication München SE & Co. KG\nLieferschein: LS-77881\nBestell-Nr: PO-2026-920\nPos 1: Spezial-Lösungsmittel UN 1219 PG II\nMenge: 4 Fass (à 200 Liter = 800 Liter)",
+    po: "Bestellung PO-2026-920\nLieferant: Klüber Lubrication\nPos 1: Spezial-Lösungsmittel UN 1219\nMenge: 800 Liter\nZwingend erforderlich: Aktuelles Sicherheitsdatenblatt (SDB nach REACH).",
+    ramp: "ALARM: Ein Fass leckt am Spundloch! Pfütze auf Ladefläche. Sicherheitsdatenblatt fehlt komplett."
+  },
+  mhd: {
+    delivery: "Lieferant: Henkel AG & Co. KGaA\nLieferschein: LS-55410\nBestell-Nr: PO-2026-304\nPos 1: Loctite 243 Schraubensicherung 250ml\nMenge: 20 Flaschen\nMHD auf Gebinde: 15.12.2026 (Restlaufzeit: 6 Wochen)",
+    po: "Bestellung PO-2026-304\nLieferant: Henkel AG & Co. KGaA\nPos 1: Loctite 243 Schraubensicherung 250ml\nMenge: 20 Flaschen\nVorgabe: Mindesthaltbarkeit (MHD) bei Anlieferung mindestens 12 Monate Restlaufzeit!",
+    ramp: "MHD-Prüfung fehlgeschlagen: Gebinde verfällt in 6 Wochen. Vertragliche Mindestrestlaufzeit von 12 Monaten drastisch unterschritten."
+  },
+  cert: {
+    delivery: "Lieferant: Thyssenkrupp Schulte GmbH\nLieferschein: LS-11980\nBestell-Nr: PO-2026-115\nPos 1: Edelstahl-Rundstahl 1.4301 Ø 50mm x 3000mm\nMenge: 10 Stangen (Gewicht: 462 kg)\nZeugnis: Werksabnahmeprüfzeugnis 3.1 nach EN 10204 nicht auffindbar",
+    po: "Bestellung PO-2026-115\nLieferant: Thyssenkrupp Schulte GmbH\nPos 1: Edelstahl-Rundstahl 1.4301 Ø 50mm gezogen\nMenge: 10 Stangen\nWICHTIG: Lieferung MUSS von Werkszeugnis 3.1 nach EN 10204 begleitet sein, sonst keine Einlagerung!",
+    ramp: "Begleitpapiertasche leer, kein Werksprüfzeugnis 3.1 vorhanden. Material ohne Schmelzenzertifikat nicht freigabefähig."
+  },
+  wrong_addr: {
+    delivery: "Lieferant: Rittal GmbH & Co. KG\nLieferschein: LS-30091\nEmpfänger laut Lieferschein: Meier Metallbau KG, Hafenstraße 12, 44147 Dortmund\nPos 1: Schaltschrank VX25 800x2000x600\nMenge: 2 Stück",
+    po: "Bestellung: KEINE EIGENE BESTELLUNG!\nUnser Betrieb: Lindemann Kontraktlogistik GmbH, Bochum.\nKeine offene Bestellung für diesen Lieferanten im System vorhanden.",
+    ramp: "Falscher Empfänger! Speditionsfahrer wollte Ware für Meier Metallbau Dortmund bei uns in Bochum abladen. Annahme verweigert."
+  }
+};
+
+function loadPreset(key) {
+  const p = PRESETS[key];
+  if (!p) return;
+  document.getElementById("lieferschein_input").value = p.delivery;
+  document.getElementById("po_input").value = p.po;
+  document.getElementById("ramp_input").value = p.ramp;
+}
+
+async function parseBarcode() {
+  const bc = document.getElementById("barcode_input").value.trim();
+  if (!bc) return;
+  try {
+    const res = await fetch("/api/v1/parse-barcode", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ barcode: bc })
+    });
+    const data = await res.json();
+    let txt = `\n[Barcode-Scan ${data.format}]: GTIN: ${data.gtin || data.part_number || 'N/A'}, Charge/Lot: ${data.charge_lot || data.lot_serial || 'N/A'}, MHD: ${data.mhd_date || 'N/A'}, Menge: ${data.menge_count || data.quantity || 'N/A'}`;
+    document.getElementById("ramp_input").value += txt;
+  } catch (e) {
+    alert("Barcode Parser Error: " + e.message);
+  }
+}
+
+async function submitAudit() {
+  const delivery = document.getElementById("lieferschein_input").value.trim();
+  const po = document.getElementById("po_input").value.trim();
+  const ramp = document.getElementById("ramp_input").value.trim();
+
+  if (!delivery || !po) {
+    alert("Bitte mindestens Lieferschein und ERP-Bestellung eingeben.");
+    return;
+  }
+
+  const btn = document.getElementById("btn_audit");
+  const spinner = document.getElementById("btn_spinner");
+  const btnText = document.getElementById("btn_text");
+
+  btn.disabled = true;
+  spinner.style.display = "inline-block";
+  btnText.innerText = "Prüfe mit LagerPilot-Qwen...";
+
+  const t0 = performance.now();
+
+  try {
+    const res = await fetch("/api/v1/audit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        lieferschein_ocr: delivery,
+        purchase_order_erp: po,
+        ramp_notes: ramp
+      })
+    });
+
+    const result = await res.json();
+    const latency = ((performance.now() - t0) / 1000).toFixed(1);
+
+    displayResult(result, latency, po, delivery);
+  } catch (err) {
+    alert("Fehler bei der Prüfung: " + err.message);
+  } finally {
+    btn.disabled = false;
+    spinner.style.display = "none";
+    btnText.innerText = "⚡ Wareneingang prüfen (§ 377 HGB Audit)";
+  }
+}
+
+function displayResult(res, latencySec, poRaw, deliveryRaw) {
+  document.getElementById("placeholder_view").style.display = "none";
+  document.getElementById("result_view").style.display = "block";
+  document.getElementById("audit_latency").innerText = `Prüfdauer: ${latencySec}s (Edge CPU)`;
+
+  const data = res.data || {};
+  const status = data.audit_status || "UNBEKANNT";
+
+  // Status Banner
+  const banner = document.getElementById("status_banner");
+  banner.className = "status-banner status-" + status;
+  let icon = "✅";
+  if (status === "MÄNGELRÜGE_ERFORDERLICH") icon = "⚠️";
+  if (status === "SPERRE") icon = "⛔";
+
+  banner.innerHTML = `${icon} STATUS: ${status.replace("_", " ")}`;
+  banner.style.display = "block";
+
+  // Directive
+  const dir = document.getElementById("rampen_directive");
+  dir.innerText = "Rampen-Anweisung: " + (data.rampen_anweisung_kurz || "Keine Anweisung vorhanden.");
+  dir.style.display = "block";
+
+  // Legal Notice Card
+  const legalCard = document.getElementById("legal_card");
+  const legalText = document.getElementById("legal_text");
+  const complaint = data.maengelruege_schreiben;
+
+  if (complaint && status !== "FREIGABE") {
+    legalCard.style.display = "block";
+    if (typeof complaint === "object") {
+      legalText.innerText = JSON.stringify(complaint, null, 2);
+    } else {
+      legalText.innerText = complaint;
+    }
+  } else {
+    legalCard.style.display = "none";
+  }
+
+  // JSON view
+  document.getElementById("json_code").innerText = JSON.stringify(data, null, 2);
+
+  // SAP BAPI Payload Generator
+  fetch("/api/v1/erp-payload", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ audit_result: res })
+  })
+  .then(r => r.json())
+  .then(sap => {
+    document.getElementById("sap_code").innerText = JSON.stringify(sap, null, 2);
+  })
+  .catch(() => {
+    document.getElementById("sap_code").innerText = "// SAP BAPI Payload konnte nicht geladen werden.";
+  });
+}
+
+function copyLegalText() {
+  const t = document.getElementById("legal_text").innerText;
+  navigator.clipboard.writeText(t).then(() => {
+    alert("Mängelrüge-Text in Zwischenablage kopiert!");
+  });
+}
+
+function switchTab(tabId) {
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+  event.target.classList.add("active");
+  document.getElementById(tabId).classList.add("active");
+}
+</script>
+
+</body>
+</html>

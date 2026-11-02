@@ -1,0 +1,262 @@
+[
+  {
+    "id": "sample_0101",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Festo SE & Co. KG\nLS-Nr: LS-35242 | Datum: 02.11.2026 | PO: PO-6169\nPos 1: DICHT-OR-40X3-NBR70 - 75 Stück - Charge: CH-296\n\nERP-BESTELLUNG:\nPO: PO-6169 | Pos 1: DICHT-OR-40X3-NBR70 - 50 Stück\n\nRAMPEN-NOTIZ:\nÜbermenge: 75 statt 50 Stück."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-35242\",\n    \"bestell_nr\": \"PO-6169\",\n    \"lieferant\": \"Festo SE & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"DICHT-OR-40X3-NBR70\",\n      \"lieferschein_art_nr\": \"DICHT-OR-40X3-NBR70\",\n      \"bezeichnung\": \"O-Ring 40x3 mm NBR 70\",\n      \"bestellmenge\": 50,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 75,\n      \"mengendifferenz\": 25,\n      \"charge_ist\": \"CH-296\",\n      \"status\": \"UEBERLIEFERUNG\",\n      \"mangel_detail\": \"Unautorisierte Überlieferung von +25 Stück.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Unautorisierte Überlieferung von +25 Stück.\"\n  },\n  \"maengelruege_schreiben\": \"ABWEICHUNGSRÜGE § 377 HGB: Zu LS LS-35242 wurden 75 statt 50 Stück Art. DICHT-OR-40X3-NBR70 geliefert. Mehrlieferung von 25 Stück wird bis Klärung gesperrt.\",\n  \"rampen_anweisung_kurz\": \"Nur 50 Stück vereinnahmen. Überschüssige 25 Stück auf Sperrlagerplatz stellen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 50\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0102",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Thyssenkrupp Schulte GmbH\nLS-Nr: LS-46241 | Datum: 02.11.2026 | PO: PO-9595\nPos 1: KLEM-WAGO-221-413 - 75 Stück - Charge: CH-952\n\nERP-BESTELLUNG:\nPO: PO-9595 | Pos 1: KLEM-WAGO-221-413 - 50 Stück\n\nRAMPEN-NOTIZ:\nÜbermenge: 75 statt 50 Stück."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-46241\",\n    \"bestell_nr\": \"PO-9595\",\n    \"lieferant\": \"Thyssenkrupp Schulte GmbH\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"KLEM-WAGO-221-413\",\n      \"lieferschein_art_nr\": \"KLEM-WAGO-221-413\",\n      \"bezeichnung\": \"WAGO Klemme 3-Leiter 221-413\",\n      \"bestellmenge\": 50,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 75,\n      \"mengendifferenz\": 25,\n      \"charge_ist\": \"CH-952\",\n      \"status\": \"UEBERLIEFERUNG\",\n      \"mangel_detail\": \"Unautorisierte Überlieferung von +25 Stück.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Unautorisierte Überlieferung von +25 Stück.\"\n  },\n  \"maengelruege_schreiben\": \"ABWEICHUNGSRÜGE § 377 HGB: Zu LS LS-46241 wurden 75 statt 50 Stück Art. KLEM-WAGO-221-413 geliefert. Mehrlieferung von 25 Stück wird bis Klärung gesperrt.\",\n  \"rampen_anweisung_kurz\": \"Nur 50 Stück vereinnahmen. Überschüssige 25 Stück auf Sperrlagerplatz stellen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 50\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0103",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Phoenix Contact GmbH & Co. KG\nLS-Nr: LS-39816 | Datum: 02.11.2026 | PO: PO-6912\nPos 1: SCHM-SYN-400ML - 75 Stück - Charge: CH-114\n\nERP-BESTELLUNG:\nPO: PO-6912 | Pos 1: SCHM-SYN-400ML - 50 Stück\n\nRAMPEN-NOTIZ:\nÜbermenge: 75 statt 50 Stück."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-39816\",\n    \"bestell_nr\": \"PO-6912\",\n    \"lieferant\": \"Phoenix Contact GmbH & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"SCHM-SYN-400ML\",\n      \"lieferschein_art_nr\": \"SCHM-SYN-400ML\",\n      \"bezeichnung\": \"Hochtemp-Schmierfett 400ml\",\n      \"bestellmenge\": 50,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 75,\n      \"mengendifferenz\": 25,\n      \"charge_ist\": \"CH-114\",\n      \"status\": \"UEBERLIEFERUNG\",\n      \"mangel_detail\": \"Unautorisierte Überlieferung von +25 Stück.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Unautorisierte Überlieferung von +25 Stück.\"\n  },\n  \"maengelruege_schreiben\": \"ABWEICHUNGSRÜGE § 377 HGB: Zu LS LS-39816 wurden 75 statt 50 Stück Art. SCHM-SYN-400ML geliefert. Mehrlieferung von 25 Stück wird bis Klärung gesperrt.\",\n  \"rampen_anweisung_kurz\": \"Nur 50 Stück vereinnahmen. Überschüssige 25 Stück auf Sperrlagerplatz stellen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 50\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0104",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Klüber Lubrication München SE\nLS-Nr: LS-45954 | Datum: 02.11.2026 | PO: PO-1745\nPos 1: SCHR-DIN912-M8-30 - 2 Fass - Charge: LOT-HAZ-99\n\nERP-BESTELLUNG:\nPO: PO-1745 | Pos 1: SCHR-DIN912-M8-30 - 2 Stück\n\nRAMPEN-NOTIZ:\nGefahrgut UN 1219 leckt am Spundloch, Sicherheitsdatenblatt fehlt."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"SPERRE\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-45954\",\n    \"bestell_nr\": \"PO-1745\",\n    \"lieferant\": \"Klüber Lubrication München SE\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"SCHR-DIN912-M8-30\",\n      \"lieferschein_art_nr\": \"SCHR-DIN912-M8-30\",\n      \"bezeichnung\": \"Zylinderschraube DIN 912 M8x30\",\n      \"bestellmenge\": 2,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 2,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"LOT-HAZ-99\",\n      \"status\": \"BESCHAEDIGT\",\n      \"mangel_detail\": \"Gefahrgutsperre: Undichtigkeit & fehlendes Sicherheitsdatenblatt (ADR/REACH).\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Gefahrgutsperre: Undichtigkeit & fehlendes Sicherheitsdatenblatt (ADR/REACH).\"\n  },\n  \"maengelruege_schreiben\": \"SICHERHEITSSPERRE & RÜGE NACH § 377 HGB: Gefahrgutlieferung zu LS LS-45954 weist Leckage auf und Sicherheitsdatenblatt fehlt. Sendung im externen Quarantänebereich isoliert.\",\n  \"rampen_anweisung_kurz\": \"GEFAHRGUT-ALARM! Sofort in Auffangwanne isolieren, Sicherheitsbeauftragten rufen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"105\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0105",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Thyssenkrupp Schulte GmbH\nLS-Nr: LS-23446 | Datum: 02.11.2026 | PO: PO-1200\nPos 1: KLEM-WAGO-221-413 - 70 Stück - Charge: CH-590\n\nERP-BESTELLUNG:\nPO: PO-1200 | Pos 1: KLEM-WAGO-221-413 - 100 Stück\n\nRAMPEN-NOTIZ:\nFehlmenge: Nur 70 von 100 Stück erhalten."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-23446\",\n    \"bestell_nr\": \"PO-1200\",\n    \"lieferant\": \"Thyssenkrupp Schulte GmbH\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"KLEM-WAGO-221-413\",\n      \"lieferschein_art_nr\": \"KLEM-WAGO-221-413\",\n      \"bezeichnung\": \"WAGO Klemme 3-Leiter 221-413\",\n      \"bestellmenge\": 100,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 70,\n      \"mengendifferenz\": -30,\n      \"charge_ist\": \"CH-590\",\n      \"status\": \"MINDERLIEFERUNG\",\n      \"mangel_detail\": \"Mindermenge von 30 Stück festgestellt.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Mindermenge von 30 Stück festgestellt.\"\n  },\n  \"maengelruege_schreiben\": \"MÄNGELRÜGE § 377 HGB: Zu LS LS-23446 (Bestellung PO-1200) rügen wir eine Mindermenge von 30 Stück bei Art. KLEM-WAGO-221-413. Wir fordern Nachlieferung binnen 5 Werktagen gem. § 439 BGB.\",\n  \"rampen_anweisung_kurz\": \"Fehlmenge vermerken. Nur 70 Stück buchen, Speditionsschein mit Mindervermerk quittieren.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"101\",\n    \"buchungsmenge\": 70\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0106",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: WAGO GmbH & Co. KG\nLS-Nr: LS-34164 | Datum: 02.11.2026 | PO: PO-1841\nPos 1: KLEM-WAGO-221-413 - 10 Stück - Charge: CH-EXP-24\n\nERP-BESTELLUNG:\nPO: PO-1841 | Pos 1: KLEM-WAGO-221-413 - 10 Stück\n\nRAMPEN-NOTIZ:\nMHD-Unterschreitung: Restlaufzeit unter 30 Tage (Vertrag: 6 Monate)."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-34164\",\n    \"bestell_nr\": \"PO-1841\",\n    \"lieferant\": \"WAGO GmbH & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"KLEM-WAGO-221-413\",\n      \"lieferschein_art_nr\": \"KLEM-WAGO-221-413\",\n      \"bezeichnung\": \"WAGO Klemme 3-Leiter 221-413\",\n      \"bestellmenge\": 10,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 10,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"CH-EXP-24\",\n      \"status\": \"CHARGENFEHLER\",\n      \"mangel_detail\": \"MHD unterschreitet Mindestrestlaufzeit.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"MHD unterschreitet Mindestrestlaufzeit.\"\n  },\n  \"maengelruege_schreiben\": \"MÄNGELRÜGE § 377 HGB: Zu LS LS-34164 unterschreitet Charge CH-EXP-24 (MHD 20.11.2026) die vertragliche Mindestrestlaufzeit. Ware wird gesperrt.\",\n  \"rampen_anweisung_kurz\": \"MHD-Fehler! Annahme verweigert, Quarantäneplatz.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0107",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Hoffmann Group SE\nLS-Nr: LS-74454 | Datum: 02.11.2026 | PO: PO-2213\nPos 1: SCHR-DIN912-M8-30 - 4 Karton - Charge: LOT-5978\n\nERP-BESTELLUNG:\nPO: PO-2213 | Pos 1: SCHR-DIN912-M8-30 - 400 Stück\n\nRAMPEN-NOTIZ:\n4 Karton originalverpackt."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"FREIGABE\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-74454\",\n    \"bestell_nr\": \"PO-2213\",\n    \"lieferant\": \"Hoffmann Group SE\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"SCHR-DIN912-M8-30\",\n      \"lieferschein_art_nr\": \"SCHR-DIN912-M8-30\",\n      \"bezeichnung\": \"Zylinderschraube DIN 912 M8x30\",\n      \"bestellmenge\": 400,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 400,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"LOT-5978\",\n      \"status\": \"OK\",\n      \"mangel_detail\": \"VPE umgerechnet: 4 Karton * 100 = 400 Stück.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": false,\n    \"begruendung\": \"Lieferung ordnungsgemäß.\"\n  },\n  \"maengelruege_schreiben\": null,\n  \"rampen_anweisung_kurz\": \"Menge geprüft (4 Karton = 400 Stück). Freigabe erteilt.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"101\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0108",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Schaeffler Technologies AG & Co. KG\nLS-Nr: LS-25525 | Datum: 02.11.2026 | PO: PO-7818\nPos 1: KUGL-6204-2RSH - 9 Karton - Charge: LOT-8253\n\nERP-BESTELLUNG:\nPO: PO-7818 | Pos 1: KUGL-6204-2RSH - 90 Stück\n\nRAMPEN-NOTIZ:\n9 Karton originalverpackt."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"FREIGABE\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-25525\",\n    \"bestell_nr\": \"PO-7818\",\n    \"lieferant\": \"Schaeffler Technologies AG & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"KUGL-6204-2RSH\",\n      \"lieferschein_art_nr\": \"KUGL-6204-2RSH\",\n      \"bezeichnung\": \"Rillenkugellager 6204-2RSH SKF\",\n      \"bestellmenge\": 90,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 90,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"LOT-8253\",\n      \"status\": \"OK\",\n      \"mangel_detail\": \"VPE umgerechnet: 9 Karton * 10 = 90 Stück.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": false,\n    \"begruendung\": \"Lieferung ordnungsgemäß.\"\n  },\n  \"maengelruege_schreiben\": null,\n  \"rampen_anweisung_kurz\": \"Menge geprüft (9 Karton = 90 Stück). Freigabe erteilt.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"101\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0109",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: SICK AG\nLS-Nr: LS-66207 | Datum: 02.11.2026 | PO: PO-6003\nPos 1: SCHR-DIN912-M8-30 - 5 Karton - Charge: CH-881\n\nERP-BESTELLUNG:\nPO: PO-6003 | Pos 1: SCHR-DIN912-M8-30 - 50 Stück\n\nRAMPEN-NOTIZ:\nKartonaufdruck: 15 Stk/Karton (= 75 Stk), bestellt waren 50 Stk."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-66207\",\n    \"bestell_nr\": \"PO-6003\",\n    \"lieferant\": \"SICK AG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"SCHR-DIN912-M8-30\",\n      \"lieferschein_art_nr\": \"SCHR-DIN912-M8-30\",\n      \"bezeichnung\": \"Zylinderschraube DIN 912 M8x30\",\n      \"bestellmenge\": 50,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 500,\n      \"mengendifferenz\": 25,\n      \"charge_ist\": \"CH-881\",\n      \"status\": \"UEBERLIEFERUNG\",\n      \"mangel_detail\": \"VPE-Abweichung: 5 Kartons à 15 Stk = 75 Stk statt bestellter 50 Stk (+25 Stk).\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"VPE-Abweichung: 5 Kartons à 15 Stk = 75 Stk statt bestellter 50 Stk (+25 Stk).\"\n  },\n  \"maengelruege_schreiben\": \"MÄNGELRÜGE § 377 HGB: Gebindegröße weicht ab (5 Kartons à 15 Stk = 75 Stk vs 50 Stk bestellt). Wir rügen Übermenge von 25 Stk.\",\n  \"rampen_anweisung_kurz\": \"VPE-Konflikt! Nicht als 5 Stück buchen. Auf Klärplatz verbringen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0110",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Schaeffler Technologies AG & Co. KG\nLS-Nr: LS-44687 | Datum: 02.11.2026 | PO: PO-2330\nPos 1: SCHM-SYN-400ML - 75 Stück - Charge: CH-277\n\nERP-BESTELLUNG:\nPO: PO-2330 | Pos 1: SCHM-SYN-400ML - 50 Stück\n\nRAMPEN-NOTIZ:\nÜbermenge: 75 statt 50 Stück."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-44687\",\n    \"bestell_nr\": \"PO-2330\",\n    \"lieferant\": \"Schaeffler Technologies AG & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"SCHM-SYN-400ML\",\n      \"lieferschein_art_nr\": \"SCHM-SYN-400ML\",\n      \"bezeichnung\": \"Hochtemp-Schmierfett 400ml\",\n      \"bestellmenge\": 50,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 75,\n      \"mengendifferenz\": 25,\n      \"charge_ist\": \"CH-277\",\n      \"status\": \"UEBERLIEFERUNG\",\n      \"mangel_detail\": \"Unautorisierte Überlieferung von +25 Stück.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Unautorisierte Überlieferung von +25 Stück.\"\n  },\n  \"maengelruege_schreiben\": \"ABWEICHUNGSRÜGE § 377 HGB: Zu LS LS-44687 wurden 75 statt 50 Stück Art. SCHM-SYN-400ML geliefert. Mehrlieferung von 25 Stück wird bis Klärung gesperrt.\",\n  \"rampen_anweisung_kurz\": \"Nur 50 Stück vereinnahmen. Überschüssige 25 Stück auf Sperrlagerplatz stellen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 50\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0111",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Festo SE & Co. KG\nLS-Nr: LS-30517 | Datum: 02.11.2026 | PO: PO-1043\nPos 1: PNEU-VENTIL-52-G18 - 2 Fass - Charge: LOT-HAZ-98\n\nERP-BESTELLUNG:\nPO: PO-1043 | Pos 1: PNEU-VENTIL-52-G18 - 2 Stück\n\nRAMPEN-NOTIZ:\nGefahrgut UN 1219 leckt am Spundloch, Sicherheitsdatenblatt fehlt."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"SPERRE\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-30517\",\n    \"bestell_nr\": \"PO-1043\",\n    \"lieferant\": \"Festo SE & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"PNEU-VENTIL-52-G18\",\n      \"lieferschein_art_nr\": \"PNEU-VENTIL-52-G18\",\n      \"bezeichnung\": \"5/2-Wege-Magnetventil 1/8\",\n      \"bestellmenge\": 2,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 2,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"LOT-HAZ-98\",\n      \"status\": \"BESCHAEDIGT\",\n      \"mangel_detail\": \"Gefahrgutsperre: Undichtigkeit & fehlendes Sicherheitsdatenblatt (ADR/REACH).\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Gefahrgutsperre: Undichtigkeit & fehlendes Sicherheitsdatenblatt (ADR/REACH).\"\n  },\n  \"maengelruege_schreiben\": \"SICHERHEITSSPERRE & RÜGE NACH § 377 HGB: Gefahrgutlieferung zu LS LS-30517 weist Leckage auf und Sicherheitsdatenblatt fehlt. Sendung im externen Quarantänebereich isoliert.\",\n  \"rampen_anweisung_kurz\": \"GEFAHRGUT-ALARM! Sofort in Auffangwanne isolieren, Sicherheitsbeauftragten rufen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"105\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0112",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Phoenix Contact GmbH & Co. KG\nLS-Nr: LS-14278 | Datum: 02.11.2026 | PO: PO-4792\nPos 1: KLEM-WAGO-221-413 - 10 Stück - Charge: CH-EXP-99\n\nERP-BESTELLUNG:\nPO: PO-4792 | Pos 1: KLEM-WAGO-221-413 - 10 Stück\n\nRAMPEN-NOTIZ:\nMHD-Unterschreitung: Restlaufzeit unter 30 Tage (Vertrag: 6 Monate)."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-14278\",\n    \"bestell_nr\": \"PO-4792\",\n    \"lieferant\": \"Phoenix Contact GmbH & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"KLEM-WAGO-221-413\",\n      \"lieferschein_art_nr\": \"KLEM-WAGO-221-413\",\n      \"bezeichnung\": \"WAGO Klemme 3-Leiter 221-413\",\n      \"bestellmenge\": 10,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 10,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"CH-EXP-99\",\n      \"status\": \"CHARGENFEHLER\",\n      \"mangel_detail\": \"MHD unterschreitet Mindestrestlaufzeit.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"MHD unterschreitet Mindestrestlaufzeit.\"\n  },\n  \"maengelruege_schreiben\": \"MÄNGELRÜGE § 377 HGB: Zu LS LS-14278 unterschreitet Charge CH-EXP-99 (MHD 20.11.2026) die vertragliche Mindestrestlaufzeit. Ware wird gesperrt.\",\n  \"rampen_anweisung_kurz\": \"MHD-Fehler! Annahme verweigert, Quarantäneplatz.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0113",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Festo SE & Co. KG\nLS-Nr: LS-40595 | Datum: 02.11.2026 | PO: PO-5334\nPos 1: KUGL-6204-2RSH - 10 Stück - Charge: CH-EXP-24\n\nERP-BESTELLUNG:\nPO: PO-5334 | Pos 1: KUGL-6204-2RSH - 10 Stück\n\nRAMPEN-NOTIZ:\nMHD-Unterschreitung: Restlaufzeit unter 30 Tage (Vertrag: 6 Monate)."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-40595\",\n    \"bestell_nr\": \"PO-5334\",\n    \"lieferant\": \"Festo SE & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"KUGL-6204-2RSH\",\n      \"lieferschein_art_nr\": \"KUGL-6204-2RSH\",\n      \"bezeichnung\": \"Rillenkugellager 6204-2RSH SKF\",\n      \"bestellmenge\": 10,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 10,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"CH-EXP-24\",\n      \"status\": \"CHARGENFEHLER\",\n      \"mangel_detail\": \"MHD unterschreitet Mindestrestlaufzeit.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"MHD unterschreitet Mindestrestlaufzeit.\"\n  },\n  \"maengelruege_schreiben\": \"MÄNGELRÜGE § 377 HGB: Zu LS LS-40595 unterschreitet Charge CH-EXP-24 (MHD 20.11.2026) die vertragliche Mindestrestlaufzeit. Ware wird gesperrt.\",\n  \"rampen_anweisung_kurz\": \"MHD-Fehler! Annahme verweigert, Quarantäneplatz.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0114",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Schaeffler Technologies AG & Co. KG\nLS-Nr: LS-94886 | Datum: 02.11.2026 | PO: PO-3441\nPos 1: KLEM-WAGO-221-413 - 2 Fass - Charge: LOT-HAZ-19\n\nERP-BESTELLUNG:\nPO: PO-3441 | Pos 1: KLEM-WAGO-221-413 - 2 Stück\n\nRAMPEN-NOTIZ:\nGefahrgut UN 1219 leckt am Spundloch, Sicherheitsdatenblatt fehlt."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"SPERRE\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-94886\",\n    \"bestell_nr\": \"PO-3441\",\n    \"lieferant\": \"Schaeffler Technologies AG & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"KLEM-WAGO-221-413\",\n      \"lieferschein_art_nr\": \"KLEM-WAGO-221-413\",\n      \"bezeichnung\": \"WAGO Klemme 3-Leiter 221-413\",\n      \"bestellmenge\": 2,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 2,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"LOT-HAZ-19\",\n      \"status\": \"BESCHAEDIGT\",\n      \"mangel_detail\": \"Gefahrgutsperre: Undichtigkeit & fehlendes Sicherheitsdatenblatt (ADR/REACH).\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Gefahrgutsperre: Undichtigkeit & fehlendes Sicherheitsdatenblatt (ADR/REACH).\"\n  },\n  \"maengelruege_schreiben\": \"SICHERHEITSSPERRE & RÜGE NACH § 377 HGB: Gefahrgutlieferung zu LS LS-94886 weist Leckage auf und Sicherheitsdatenblatt fehlt. Sendung im externen Quarantänebereich isoliert.\",\n  \"rampen_anweisung_kurz\": \"GEFAHRGUT-ALARM! Sofort in Auffangwanne isolieren, Sicherheitsbeauftragten rufen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"105\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0115",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Klüber Lubrication München SE\nLS-Nr: LS-50319 | Datum: 02.11.2026 | PO: PO-5728\nPos 1: REIN-IND-ISOPROP-10L - 129 Liter - Charge: CH-805\n\nERP-BESTELLUNG:\nPO: PO-5728 | Pos 1: REIN-IND-ISOPROP-10L - 129 Liter\n\nRAMPEN-NOTIZ:\nWare unversehrt."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"FREIGABE\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-50319\",\n    \"bestell_nr\": \"PO-5728\",\n    \"lieferant\": \"Klüber Lubrication München SE\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"REIN-IND-ISOPROP-10L\",\n      \"lieferschein_art_nr\": \"REIN-IND-ISOPROP-10L\",\n      \"bezeichnung\": \"Reiniger Isopropanol UN 1219\",\n      \"bestellmenge\": 129,\n      \"bestell_einheit\": \"Liter\",\n      \"gelieferte_menge_basis\": 129,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"CH-805\",\n      \"status\": \"OK\",\n      \"mangel_detail\": \"Lieferung entspricht Bestellung.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": false,\n    \"begruendung\": \"Lieferung ordnungsgemäß.\"\n  },\n  \"maengelruege_schreiben\": null,\n  \"rampen_anweisung_kurz\": \"Ware vollständig. Sofort Bestandsbuchung durchführen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"101\",\n    \"buchungsmenge\": 129\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0116",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Hoffmann Group SE\nLS-Nr: LS-45683 | Datum: 02.11.2026 | PO: PO-9199\nPos 1: REIN-IND-ISOPROP-10L - 5 Karton - Charge: CH-182\n\nERP-BESTELLUNG:\nPO: PO-9199 | Pos 1: REIN-IND-ISOPROP-10L - 50 Liter\n\nRAMPEN-NOTIZ:\nKartonaufdruck: 15 Stk/Karton (= 75 Stk), bestellt waren 50 Stk."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-45683\",\n    \"bestell_nr\": \"PO-9199\",\n    \"lieferant\": \"Hoffmann Group SE\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"REIN-IND-ISOPROP-10L\",\n      \"lieferschein_art_nr\": \"REIN-IND-ISOPROP-10L\",\n      \"bezeichnung\": \"Reiniger Isopropanol UN 1219\",\n      \"bestellmenge\": 50,\n      \"bestell_einheit\": \"Liter\",\n      \"gelieferte_menge_basis\": 75,\n      \"mengendifferenz\": 25,\n      \"charge_ist\": \"CH-182\",\n      \"status\": \"UEBERLIEFERUNG\",\n      \"mangel_detail\": \"VPE-Abweichung: 5 Kartons à 15 Stk = 75 Stk statt bestellter 50 Stk (+25 Stk).\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"VPE-Abweichung: 5 Kartons à 15 Stk = 75 Stk statt bestellter 50 Stk (+25 Stk).\"\n  },\n  \"maengelruege_schreiben\": \"MÄNGELRÜGE § 377 HGB: Gebindegröße weicht ab (5 Kartons à 15 Stk = 75 Stk vs 50 Stk bestellt). Wir rügen Übermenge von 25 Stk.\",\n  \"rampen_anweisung_kurz\": \"VPE-Konflikt! Nicht als 5 Stück buchen. Auf Klärplatz verbringen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0117",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Hoffmann Group SE\nLS-Nr: LS-52247 | Datum: 02.11.2026 | PO: PO-5102\nPos 1: SCHR-DIN912-M8-30 - 68 Stück - Charge: CH-790\n\nERP-BESTELLUNG:\nPO: PO-5102 | Pos 1: SCHR-DIN912-M8-30 - 68 Stück\n\nRAMPEN-NOTIZ:\nWare unversehrt."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"FREIGABE\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-52247\",\n    \"bestell_nr\": \"PO-5102\",\n    \"lieferant\": \"Hoffmann Group SE\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"SCHR-DIN912-M8-30\",\n      \"lieferschein_art_nr\": \"SCHR-DIN912-M8-30\",\n      \"bezeichnung\": \"Zylinderschraube DIN 912 M8x30\",\n      \"bestellmenge\": 68,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 68,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"CH-790\",\n      \"status\": \"OK\",\n      \"mangel_detail\": \"Lieferung entspricht Bestellung.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": false,\n    \"begruendung\": \"Lieferung ordnungsgemäß.\"\n  },\n  \"maengelruege_schreiben\": null,\n  \"rampen_anweisung_kurz\": \"Ware vollständig. Sofort Bestandsbuchung durchführen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"101\",\n    \"buchungsmenge\": 68\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0118",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Phoenix Contact GmbH & Co. KG\nLS-Nr: LS-85529 | Datum: 02.11.2026 | PO: PO-1659\nPos 1: SCHM-SYN-400ML - 142 Stück - Charge: CH-767\n\nERP-BESTELLUNG:\nPO: PO-1659 | Pos 1: SCHM-SYN-400ML - 142 Stück\n\nRAMPEN-NOTIZ:\nWare unversehrt."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"FREIGABE\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-85529\",\n    \"bestell_nr\": \"PO-1659\",\n    \"lieferant\": \"Phoenix Contact GmbH & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"SCHM-SYN-400ML\",\n      \"lieferschein_art_nr\": \"SCHM-SYN-400ML\",\n      \"bezeichnung\": \"Hochtemp-Schmierfett 400ml\",\n      \"bestellmenge\": 142,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 142,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"CH-767\",\n      \"status\": \"OK\",\n      \"mangel_detail\": \"Lieferung entspricht Bestellung.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": false,\n    \"begruendung\": \"Lieferung ordnungsgemäß.\"\n  },\n  \"maengelruege_schreiben\": null,\n  \"rampen_anweisung_kurz\": \"Ware vollständig. Sofort Bestandsbuchung durchführen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"101\",\n    \"buchungsmenge\": 142\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0119",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Phoenix Contact GmbH & Co. KG\nLS-Nr: LS-33788 | Datum: 02.11.2026 | PO: PO-8141\nPos 1: REIN-IND-ISOPROP-10L - 10 Liter - Charge: CH-EXP-70\n\nERP-BESTELLUNG:\nPO: PO-8141 | Pos 1: REIN-IND-ISOPROP-10L - 10 Liter\n\nRAMPEN-NOTIZ:\nMHD-Unterschreitung: Restlaufzeit unter 30 Tage (Vertrag: 6 Monate)."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-33788\",\n    \"bestell_nr\": \"PO-8141\",\n    \"lieferant\": \"Phoenix Contact GmbH & Co. KG\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"REIN-IND-ISOPROP-10L\",\n      \"lieferschein_art_nr\": \"REIN-IND-ISOPROP-10L\",\n      \"bezeichnung\": \"Reiniger Isopropanol UN 1219\",\n      \"bestellmenge\": 10,\n      \"bestell_einheit\": \"Liter\",\n      \"gelieferte_menge_basis\": 10,\n      \"mengendifferenz\": 0,\n      \"charge_ist\": \"CH-EXP-70\",\n      \"status\": \"CHARGENFEHLER\",\n      \"mangel_detail\": \"MHD unterschreitet Mindestrestlaufzeit.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"MHD unterschreitet Mindestrestlaufzeit.\"\n  },\n  \"maengelruege_schreiben\": \"MÄNGELRÜGE § 377 HGB: Zu LS LS-33788 unterschreitet Charge CH-EXP-70 (MHD 20.11.2026) die vertragliche Mindestrestlaufzeit. Ware wird gesperrt.\",\n  \"rampen_anweisung_kurz\": \"MHD-Fehler! Annahme verweigert, Quarantäneplatz.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"103\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  },
+  {
+    "id": "sample_0120",
+    "messages": [
+      {
+        "role": "user",
+        "content": "LIEFERSCHEIN:\nLieferant: Hoffmann Group SE\nLS-Nr: LS-53687 | Datum: 02.11.2026 | PO: PO-6260\nPos 1: DICHT-OR-40X3-NBR70-REV2 - 20 Stück - Charge: CH-437\n\nERP-BESTELLUNG:\nPO: PO-6260 | Pos 1: DICHT-OR-40X3-NBR70 - 20 Stück\n\nRAMPEN-NOTIZ:\nFalscher Artikel geliefert. Typenschild stimmt nicht."
+      },
+      {
+        "role": "assistant",
+        "content": "{\n  \"audit_status\": \"MÄNGELRÜGE_ERFORDERLICH\",\n  \"beleg_info\": {\n    \"lieferschein_nr\": \"LS-53687\",\n    \"bestell_nr\": \"PO-6260\",\n    \"lieferant\": \"Hoffmann Group SE\",\n    \"datum\": \"02.11.2026\"\n  },\n  \"positions_abgleich\": [\n    {\n      \"pos\": 1,\n      \"bestell_art_nr\": \"DICHT-OR-40X3-NBR70\",\n      \"lieferschein_art_nr\": \"DICHT-OR-40X3-NBR70-REV2\",\n      \"bezeichnung\": \"O-Ring 40x3 mm NBR 70\",\n      \"bestellmenge\": 20,\n      \"bestell_einheit\": \"Stück\",\n      \"gelieferte_menge_basis\": 20,\n      \"mengendifferenz\": -20,\n      \"charge_ist\": \"CH-437\",\n      \"status\": \"FALSCHLIEFERUNG\",\n      \"mangel_detail\": \"Aliud-Lieferung gem. § 434 BGB: DICHT-OR-40X3-NBR70-REV2 geliefert statt DICHT-OR-40X3-NBR70.\"\n    }\n  ],\n  \"hgb_377_bewertung\": {\n    \"ruege_notwendig\": true,\n    \"begruendung\": \"Aliud-Lieferung gem. § 434 BGB: DICHT-OR-40X3-NBR70-REV2 geliefert statt DICHT-OR-40X3-NBR70.\"\n  },\n  \"maengelruege_schreiben\": \"MÄNGELRÜGE § 377 HGB (ALIUD): Zu LS LS-53687 wurde Falschartikel DICHT-OR-40X3-NBR70-REV2 statt DICHT-OR-40X3-NBR70 geliefert. Wir verweigern die Annahme und fordern Nachlieferung binnen 4 Werktagen.\",\n  \"rampen_anweisung_kurz\": \"Falschlieferung! Nicht einlagern. Ware in Quarantäne stellen.\",\n  \"erp_buchungs_payload\": {\n    \"bewegungsart\": \"122\",\n    \"buchungsmenge\": 0\n  }\n}"
+      }
+    ]
+  }
+]

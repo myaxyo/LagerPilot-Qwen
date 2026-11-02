@@ -1,0 +1,47 @@
+[
+  {
+    "id": "CASE-01-CLEAN-VPE",
+    "description": "Standard fastener delivery with packaging unit conversion (Kartons to Stück)",
+    "lieferschein_ocr": "Lieferant: Würth Industrie Service GmbH & Co. KG\nLieferschein: LS-55129\nBestell-Nr: BEST-2026-9901\nPos 1: SCHR-DIN912-M8-30 Zylinderschrauben M8x30 verzinkt\nMenge: 5 Karton (1 Karton = 100 Stk)\nCharge: CH-9011-B\nDatum: 02.11.2026",
+    "po_erp": "Bestellung: BEST-2026-9901\nLieferant: Würth Industrie Service GmbH & Co. KG\nPos 1: SCHR-DIN912-M8-30, Zylinderschraube DIN 912 M8x30 8.8 verzinkt\nMenge: 500 Stück",
+    "ramp_notes": "5 Kartons unbeschädigt, sauber palettiert.",
+    "expected_status": "FREIGABE",
+    "expected_ruege": false
+  },
+  {
+    "id": "CASE-02-UNDERDELIVERY-SHORTAGE",
+    "description": "Shortage of 25 ball bearings with immediate commercial objection required",
+    "lieferschein_ocr": "Lieferant: Schaeffler Technologies AG & Co. KG\nLieferschein: LS-77821\nBestellung: BEST-2026-3312\nPos 1: KUGL-6204-2RSH Rillenkugellager 6204-2RSH\nMenge: 75 Stück\nCharge: LOT-SKF-881",
+    "po_erp": "Bestellung: BEST-2026-3312\nLieferant: Schaeffler Technologies AG & Co. KG\nPos 1: KUGL-6204-2RSH, Rillenkugellager 6204-2RSH\nMenge: 100 Stück",
+    "ramp_notes": "Lieferung nachgezählt: Nur 75 Stück geliefert statt bestellter 100 Stück.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true
+  },
+  {
+    "id": "CASE-03-WRONG-ARTICLE-ALIUD",
+    "description": "Vendor supplied unauthorized revised model (Aliud) requiring § 377 rejection",
+    "lieferschein_ocr": "Lieferant: Festo SE & Co. KG\nLieferschein-Nr: LS-33918\nBestell-Nr: BEST-2026-1189\nPos 1: PNEU-VENTIL-52-G18-MODIFIED 5/2-Wege-Magnetventil Sonderbauform\nMenge: 10 Stück",
+    "po_erp": "Bestellung: BEST-2026-1189\nLieferant: Festo SE & Co. KG\nPos 1: PNEU-VENTIL-52-G18, 5/2-Wege-Magnetventil Festo CPE14-M1BH-5J-1/8\nMenge: 10 Stück",
+    "ramp_notes": "Typenschild auf Ventil weicht ab. Flanschmaß passt nicht.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true
+  },
+  {
+    "id": "CASE-04-TRANSPORT-DAMAGE",
+    "description": "Crushed pallet with water penetration documented on consignment note",
+    "lieferschein_ocr": "Lieferant: Phoenix Contact GmbH & Co. KG\nLieferschein: LS-81203\nBestellnummer: BEST-2026-7744\nPos 1: KLEM-WAGO-221-413 Verbindungsklemmen 3-Leiter\nMenge: 20 Schachtel (à 50 Stück = 1000 Stk)\nCharge: CH-PHX-441",
+    "po_erp": "Bestellnummer: BEST-2026-7744\nLieferant: Phoenix Contact GmbH & Co. KG\nPos 1: KLEM-WAGO-221-413, WAGO Verbindungsklemme 3-Leiter\nMenge: 1000 Stück",
+    "ramp_notes": "Speditionstransportschaden: Palette bei Entladung gekippt, 4 Schachteln nass und zerquetscht. Fahrer hat CMR gegengezeichnet.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true
+  },
+  {
+    "id": "CASE-05-HAZMAT-QUARANTINE",
+    "description": "Hazardous isopropanol delivered without mandatory REACH SDS and leaking drum",
+    "lieferschein_ocr": "Lieferant: Klüber Lubrication München SE & Co. KG\nLieferschein: LS-99210\nBestellung: BEST-2026-6621\nPos 1: REIN-IND-ISOPROP-10L Industriereiniger UN 1219\nMenge: 4 Fass (je 200 Liter)",
+    "po_erp": "Bestellung: BEST-2026-6621\nPos 1: REIN-IND-ISOPROP-10L, Industriereiniger Isopropanol 99,9% UN 1219\nMenge: 800 Liter",
+    "ramp_notes": "ALARM: Ein Fass leckt leicht am Spundloch, starker Geruch. Sicherheitsdatenblatt fehlt komplett in den Frachtpapieren.",
+    "expected_status": "SPERRE",
+    "expected_ruege": true
+  }
+]

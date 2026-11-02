@@ -1,0 +1,112 @@
+[
+  {
+    "id": "UC-01-CLEAN-VPE-CONVERSION",
+    "title": "Standard Clean Delivery with Packaging Unit Conversion (VPE)",
+    "category": "Clean Intake",
+    "delivery_note": "Lieferant: Würth Industrie Service GmbH & Co. KG\nLieferschein: LS-90112\nBestell-Nr: PO-2026-401\nPos 1: Sechskantschrauben DIN 933 M12x40 8.8 verzinkt\nMenge: 20 Karton (Inhalt je Karton: 50 Stück = 1.000 Stück)\nCharge: CH-2026-091",
+    "purchase_order": "Bestellung PO-2026-401\nLieferant: Würth Industrie Service\nPos 1: Sechskantschrauben DIN 933 M12x40 verzinkt\nMenge: 1.000 Stück",
+    "ramp_notes": "20 Kartons auf Europalette einwandfrei angeliefert. Folie intakt, keine Schäden.",
+    "expected_status": "FREIGABE",
+    "expected_ruege": false,
+    "practical_rationale": "Perfect delivery with unit conversion (Kartons to Stück). Direct release to high-rack storage (MIGO 101)."
+  },
+  {
+    "id": "UC-02-SHORTAGE-UNDERDELIVERY",
+    "title": "Unannounced Shortage / Underdelivery (Fehlmenge / Minderlieferung)",
+    "category": "Quantity Defect",
+    "delivery_note": "Lieferant: Schaeffler Technologies AG & Co. KG\nLieferschein: LS-44102\nBestell-Nr: PO-2026-512\nPos 1: Rillenkugellager 6205-2RSH\nMenge geliefert: 420 Stück\nCharge: LOT-SKF-992",
+    "purchase_order": "Bestellung PO-2026-512\nLieferant: Schaeffler Technologies AG & Co. KG\nPos 1: Rillenkugellager 6205-2RSH\nMenge: 500 Stück",
+    "ramp_notes": "Nachzählung an der Rampe: Nur 420 Stück vorhanden. 80 Stück fehlen ohne Vorankündigung.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true,
+    "practical_rationale": "Immediate commercial objection required under § 377 HGB to preserve buyer rights to subsequent delivery or damages."
+  },
+  {
+    "id": "UC-03-OVERDELIVERY-SURPLUS",
+    "title": "Unauthorized Overdelivery / Surplus Dumping (Mehrlieferung)",
+    "category": "Quantity Defect",
+    "delivery_note": "Lieferant: Bosch Rexroth AG\nLieferschein: LS-88219\nBestell-Nr: PO-2026-663\nPos 1: Hydraulikdichtringe NBR 70 45x60x7\nMenge geliefert: 350 Stück",
+    "purchase_order": "Bestellung PO-2026-663\nLieferant: Bosch Rexroth AG\nPos 1: Hydraulikdichtringe NBR 70 45x60x7\nMenge bestellt: 200 Stück",
+    "ramp_notes": "Lieferant hat 350 Stück geliefert statt 200 Stück bestellt. 150 Stück unbestellter Überschuss.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true,
+    "practical_rationale": "Surplus cannot be accepted into inventory without approval (ties up working capital). Unordered excess quarantined."
+  },
+  {
+    "id": "UC-04-UNAUTHORIZED-SUBSTITUTION-ALIUD",
+    "title": "Unauthorized Item Substitution / Revision Mismatch (Aliud-Lieferung)",
+    "category": "Specification Defect",
+    "delivery_note": "Lieferant: Festo SE & Co. KG\nLieferschein: LS-31125\nBestell-Nr: PO-2026-780\nPos 1: Art-Nr: PNEU-V-52-REV-B 5/2-Wegeventil modifizierte Version B\nMenge: 25 Stück",
+    "purchase_order": "Bestellung PO-2026-780\nLieferant: Festo SE & Co. KG\nPos 1: Art-Nr: PNEU-V-52-REV-A 5/2-Wegeventil Standard Version A\nMenge: 25 Stück",
+    "ramp_notes": "Aufdruck auf Verpackung: Revision B geliefert. In der Bestellung ist explizit Revision A gefordert.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true,
+    "practical_rationale": "§ 377 Abs. 2 HGB Genehmigungsfiktion: Aliud delivery is deemed accepted as fulfilling contract if not rejected promptly."
+  },
+  {
+    "id": "UC-05-PHYSICAL-TRANSPORT-DAMAGE",
+    "title": "Crushed Pallet / Water Penetration (Transportschaden)",
+    "category": "Damage Defect",
+    "delivery_note": "Lieferant: Phoenix Contact GmbH & Co. KG\nLieferschein: LS-66104\nBestell-Nr: PO-2026-891\nPos 1: Reihenklemmen UT 2,5 grau\nMenge: 50 Karton (à 50 Stück = 2.500 Stück)",
+    "purchase_order": "Bestellung PO-2026-891\nLieferant: Phoenix Contact GmbH & Co. KG\nPos 1: Reihenklemmen UT 2,5 grau\nMenge: 2.500 Stück",
+    "ramp_notes": "Speditionstransportschaden: Palette gestaucht, 6 Kartons durchnässt und aufgerissen. Fahrer hat CMR gegengezeichnet.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true,
+    "practical_rationale": "Visible physical damage must be documented immediately with carrier reservation and objection to seller."
+  },
+  {
+    "id": "UC-06-HAZMAT-LEAK-AND-MISSING-SDS",
+    "title": "Hazardous Material Leakage & Missing Safety Data Sheet (ADR/REACH)",
+    "category": "Hazmat / Safety",
+    "delivery_note": "Lieferant: Klüber Lubrication München SE & Co. KG\nLieferschein: LS-77881\nBestell-Nr: PO-2026-920\nPos 1: Spezial-Lösungsmittel UN 1219 PG II\nMenge: 4 Fass (à 200 Liter = 800 Liter)",
+    "purchase_order": "Bestellung PO-2026-920\nLieferant: Klüber Lubrication\nPos 1: Spezial-Lösungsmittel UN 1219\nMenge: 800 Liter\nZwingend erforderlich: Aktuelles Sicherheitsdatenblatt (SDB nach REACH).",
+    "ramp_notes": "ALARM: Ein Fass leckt am Spundloch! Pfütze auf Ladefläche. Sicherheitsdatenblatt fehlt komplett.",
+    "expected_status": "SPERRE",
+    "expected_ruege": true,
+    "practical_rationale": "Immediate quarantine under ADR/GGVSEB & § 22 WHG. Strict zero-tolerance safety lock."
+  },
+  {
+    "id": "UC-07-EXPIRY-MHD-VIOLATION",
+    "title": "Short Remaining Shelf Life / Expiry Violation (MHD-Unterschreitung)",
+    "category": "Quality Defect",
+    "delivery_note": "Lieferant: Henkel AG & Co. KGaA\nLieferschein: LS-55410\nBestell-Nr: PO-2026-304\nPos 1: Loctite 243 Schraubensicherung 250ml\nMenge: 20 Flaschen\nMHD auf Gebinde: 15.12.2026 (Restlaufzeit: 6 Wochen)",
+    "purchase_order": "Bestellung PO-2026-304\nLieferant: Henkel AG & Co. KGaA\nPos 1: Loctite 243 Schraubensicherung 250ml\nMenge: 20 Flaschen\nVorgabe: Mindesthaltbarkeit (MHD) bei Anlieferung mindestens 12 Monate Restlaufzeit!",
+    "ramp_notes": "MHD-Prüfung fehlgeschlagen: Gebinde verfällt in 6 Wochen. Vertragliche Mindestrestlaufzeit von 12 Monaten drastisch unterschritten.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true,
+    "practical_rationale": "Product cannot be put into inventory because it will spoil before production cycle. Rejection under § 377 HGB."
+  },
+  {
+    "id": "UC-08-MISSING-MILL-CERTIFICATE-EN10204",
+    "title": "Missing Quality Certificate / Mill Test 3.1 (Fehlendes Werksprüfzeugnis)",
+    "category": "Compliance Defect",
+    "delivery_note": "Lieferant: Thyssenkrupp Schulte GmbH\nLieferschein: LS-11980\nBestell-Nr: PO-2026-115\nPos 1: Edelstahl-Rundstahl 1.4301 Ø 50mm x 3000mm\nMenge: 10 Stangen (Gewicht: 462 kg)\nZeugnis: Werksabnahmeprüfzeugnis 3.1 nach EN 10204 nicht auffindbar",
+    "purchase_order": "Bestellung PO-2026-115\nLieferant: Thyssenkrupp Schulte GmbH\nPos 1: Edelstahl-Rundstahl 1.4301 Ø 50mm gezogen\nMenge: 10 Stangen\nWICHTIG: Lieferung MUSS von Werkszeugnis 3.1 nach EN 10204 begleitet sein, sonst keine Einlagerung!",
+    "ramp_notes": "Begleitpapiertasche leer, kein Werksprüfzeugnis 3.1 vorhanden. Material ohne Schmelzenzertifikat nicht freigabefähig.",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true,
+    "practical_rationale": "Traceability defect in regulated industry (EN 10204 3.1). Goods must be held in blocked stock (MIGO 103)."
+  },
+  {
+    "id": "UC-09-WRONG-CONSIGNEE-DELIVERY-ERROR",
+    "title": "Wrong Consignee / Carrier Misdelivery (Falscher Empfänger / Fremdware)",
+    "category": "Logistical Error",
+    "delivery_note": "Lieferant: Rittal GmbH & Co. KG\nLieferschein: LS-30091\nEmpfänger laut Lieferschein: Meier Metallbau KG, Hafenstraße 12, 44147 Dortmund\nPos 1: Schaltschrank VX25 800x2000x600\nMenge: 2 Stück",
+    "purchase_order": "Bestellung: KEINE EIGENE BESTELLUNG!\nUnser Betrieb: Lindemann Kontraktlogistik GmbH, Bochum.\nKeine offene Bestellung für diesen Lieferanten im System vorhanden.",
+    "ramp_notes": "Falscher Empfänger! Speditionsfahrer wollte Ware für Meier Metallbau Dortmund bei uns in Bochum abladen. Annahme verweigert.",
+    "expected_status": "SPERRE",
+    "expected_ruege": true,
+    "practical_rationale": "Third-party goods mistakenly delivered. Warehouse must refuse unloading to prevent liability or loss."
+  },
+  {
+    "id": "UC-10-MULTI-ITEM-PARTIAL-DEFECT",
+    "title": "Multi-Line Delivery with Line-Item Discrepancy (Mischsendung)",
+    "category": "Multi-Item Split",
+    "delivery_note": "Lieferant: Hoffmann Group (Garant)\nLieferschein: LS-99341\nBestell-Nr: PO-2026-670\nPos 1: Art-Nr: 114000 VHM-Bohrer Ø 8,5mm, Menge: 10 Stück\nPos 2: Art-Nr: 132000 Maschinen-Gewindebohrer M8, Menge: 5 Stück (statt 10 bestellt)\nPos 3: Art-Nr: 081200 Drehmomentschlüssel 20-100 Nm, Menge: 2 Stück",
+    "purchase_order": "Bestellung PO-2026-670\nLieferant: Hoffmann Group\nPos 1: Art-Nr: 114000 VHM-Bohrer Ø 8,5mm, Menge: 10 Stück\nPos 2: Art-Nr: 132000 Maschinen-Gewindebohrer M8, Menge: 10 Stück\nPos 3: Art-Nr: 081200 Drehmomentschlüssel 20-100 Nm, Menge: 2 Stück",
+    "ramp_notes": "Pos 1 und Pos 3 vollständig und maßhaltig. Pos 2 hat Fehlmenge von 5 Stück (nur 5 geliefert statt 10).",
+    "expected_status": "MÄNGELRÜGE_ERFORDERLICH",
+    "expected_ruege": true,
+    "practical_rationale": "Multi-line order where parts of delivery are compliant but one line has a shortage requiring commercial notice."
+  }
+]
