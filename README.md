@@ -26,7 +26,7 @@ pipeline_tag: text-generation
 [![Benchmark: 100% (10/10)](https://img.shields.io/badge/Stress--Test-100%25%20(10%2F10)-success.svg)](evaluation/)
 [![DSGVO / GDPR: 100% On-Prem](https://img.shields.io/badge/Privacy-100%25%20On--Premise-blueviolet.svg)](src/)
 
-> **Engineered from 28 years on the loading ramp in the Ruhr area:** The first open-source, edge-native AI auditor fine-tuned specifically for the #1 legal and financial bottleneck of German warehouse logistics: **Goods Receipt Reconciliation & Commercial Defect Notice under § 377 German Commercial Code (HGB)**.
+> **Engineered for German Warehouse Logistics & Commercial Code Compliance:** The first open-source, edge-native AI auditor fine-tuned specifically for the #1 legal and financial bottleneck of German warehouse operations: **Goods Receipt Reconciliation & Commercial Defect Notice under § 377 German Commercial Code (HGB)**.
 
 ---
 
@@ -215,6 +215,14 @@ lagerAI/
 └── scripts/
     └── export_for_ollama.py           # LoRA weight fusion utility
 ```
+
+---
+
+## 🔬 Domain Modeling & Methodology
+LagerPilot-Qwen was developed through practical domain modeling of German contract logistics (*Mittelstand Kontraktlogistik*) and statutory commercial law. Rather than relying on generic LLM summarization, the system's operational scenarios and deterministic guardrails are modeled directly on:
+- **Statutory Jurisprudence:** BGH case law governing the strict 1–2 business day commercial defect notification deadlines under § 377 HGB, the legal fiction of deemed acceptance (§ 377 Abs. 2 HGB), and B2B cure rights (§ 439 BGB).
+- **Industrial Standards:** Packaging unit conversion rules (Kartons/Gebinde to base pieces), GS1-128 / VDA 4902 transport labels, and EN 10204 3.1 mill certificate requirements.
+- **Ramp Safety Protocols:** Zero-tolerance hard overrides for statutory hazardous materials under ADR, GGVSEB, REACH, and the German Water Resources Act (§ 22 WHG).
 
 ---
 
