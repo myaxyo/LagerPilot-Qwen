@@ -1,3 +1,21 @@
+---
+license: apache-2.0
+base_model: Qwen/Qwen2.5-0.5B-Instruct
+tags:
+- logistics
+- supply-chain
+- wareneingang
+- hgb-377
+- sap-migo
+- german
+- edge-ai
+- qwen2.5
+language:
+- de
+- en
+pipeline_tag: text-generation
+---
+
 # 📦 LagerPilot-Qwen: The On-Premises § 377 HGB Goods Receipt Auditor & SAP MIGO Assistant
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
